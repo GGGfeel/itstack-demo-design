@@ -1,88 +1,97 @@
 # 重学 Java 设计模式
 
-> **作者：** 小傅哥，Java Developer，[:pencil2: 虫洞 · 科技栈，作者](https://bugstack.cn)，[:trophy: CSDN 博客专家](https://bugstack.blog.csdn.net)
+> fork from 小傅哥，[:pencil2: 虫洞 · 科技栈，作者](https://bugstack.cn)，[:trophy: CSDN 博客专家](https://bugstack.blog.csdn.net)
 
-> 本代码库是作者小傅哥多年从事一线互联网```Java```开发的学习历程技术汇总，旨在为大家提供一个清晰详细的学习教程，侧重点更倾向编写Java核心内容。如果本仓库能为您提供帮助，请给予支持(关注、点赞、分享)！
+> fork 的目的是因为在日常的开发过程中，完成需求的同时很少使用设计模式，导致抽象的能力越来越低，所欲决定好好学一把
 
-<br/>
-<div align="center">
-    <a href="https://bugstack.cn" style="text-decoration:none"><img src="https://bugstack.cn/assets/images/icon.svg" width="128px"></a>
-</div>
-<br/>  
-
-<div align="center">
-<a href="https://github.com/fuzhengwei/CodeGuide"><img src="https://badgen.net/github/stars/fuzhengwei/CodeGuide?icon=github&color=4ab8a1"></a>
-<a href="https://github.com/fuzhengwei/CodeGuide"><img src="https://badgen.net/github/forks/fuzhengwei/CodeGuide?icon=github&color=4ab8a1"></a>
-<a href="https://bugstack.cn" target="_blank"><img src="https://bugstack.cn/assets/images/onlinebook.svg"></a>
-<a href="https://bugstack.cn/assets/images/qrcode.png?x-oss-process=style/may"><img src="https://itstack.org/_media/wxbugstack.svg"></a>
-</div>
-<br/>
-
-<br/>
-<div align="center">
-    <a href="https://bugstack.cn" style="text-decoration:none"><img src="https://github.com/fuzhengwei/itstack-demo-design/blob/master/pdf.png?raw=true"></a>
-</div>
-<br/>  
-
-## 书籍下载&购买
-
-#### - 小傅哥的《重学 Java 设计模式》 ⭐⭐⭐⭐
-
->本书是作者`小傅哥`，投入50天时间，从互联网实际业务开发中抽离出，交易、营销、秒杀、中间件、源码等22个真实业务场景，编写了18万字271页的实战型Java编程资料。如果书中含有不易理解的内容，一定是作者在编写的过程中缺少必要的描述和严格的校准，感谢把你的意见或者疑问提交给我，也欢迎与我多一些交互，互相进步共同成长。
-
-- 旧版电子书：关注公众号：[bugstack虫洞栈 `点击扫码`](https://bugstack.cn/assets/images/qrcode.png)，回复：`设计模式`
-- 新版纸质书：[https://item.jd.com/13218336.html](https://u.jd.com/qPnzanP) `内容补充、添加类图、重画图稿、全书彩印`，一本可以在手边随时翻阅的设计模式，感谢支持。
-
-
-## 源码下载
-
-- **Java** [https://github.com/fuzhengwei/itstack-demo-design | `小傅哥 Java 原创版本`](https://github.com/fuzhengwei/itstack-demo-design)
-- **Java** [https://gitee.com/fustack/itstack-demo-design | `小傅哥 Java 原创版本`](https://gitee.com/fustack/itstack-demo-design)
-- **Rust** [https://github.com/Forsworns/design-pattern | `Peihao Yang Rust 贡献版本`](https://github.com/Forsworns/design-pattern)
-
-*欢迎更多小伙伴，贡献关于此设计模式其他版语言，我会帮你添加链接*
-
----
-
-**Hello, world of design！** 你好，设计模式的世界！
-
-欢迎来到这里，很高兴你能拿到这本书，如果你能坚持看完并按照书中的例子进行实践，那么在编程开发的世界里，就又多了一个可以写出良好代码的人，同时也为架构师培养储备了一个人才。
-
-可能在此之前你也多少了解过设计模式，但在实际的业务开发中使用却不多，多数时候都是大面积堆积`ifelse`组装业务流程，对于一次次的需求迭代和逻辑补充，只能东拼西凑`Ctrl+C`、`Ctrl+V`。
-
-所以为了能让更多的程序员👨‍💻‍更好的接受设计思想和架构思维，并能运用到实际的业务场景。本书的作者`小傅哥`，投入50天时间，从互联网实际业务开发中抽离出，交易、营销、秒杀、中间件、源码等22个真实场景，来学习设计模式实践使用的应用可上手技能。
-
-**谁发明了设计模式？**
-
-设计模式的概念最早是由 `克里斯托佛·亚历山大` 在其著作 `《建筑模式语言》` 中首次提出的。 本书介绍了城市设计的 “语言”，提供了253个描述城镇、邻里、住宅、花园、房间及西部构造的模式， 而此类 “语言” 的基本单元就是模式。后来，`埃里希·伽玛`、 `约翰·弗利赛德斯`、 `拉尔夫·约翰逊` 和 `理查德·赫尔姆` 这四位作者接受了模式的概念。 1994 年， 他们出版了 `《设计模式： 可复用面向对象软件的基础》` 一书， 将设计模式的概念应用到程序开发领域中。 
-
-其实有一部分人并没有仔细阅读过设计模式的相关书籍和资料，但依旧可以编写出优秀的代码。这主要是由于在经过众多项目的锤炼和对程序设计的不断追求，从而在多年编程历程上提炼出来的心得体会。而这份经验最终会与设计模式提到的内容几乎一致，同样会要求高内聚、低耦合、可扩展、可复用。你可能也遇到类似的经历，在学习一些框架的源码时，发现它里的某些设计和你在做开发时一样。
-
-**我怎么学不会设计模式？**
-
-钱也花了，书也买了。代码还是一坨一坨的！设计模式是由多年的经验提炼出来开发指导思想。就像我告诉你自行车怎么骑、汽车怎么开，但只要你没跑过几千公里，你能记住的只是理论，想上道依旧很慌！
-
-**所以**，本设计模式专题系列开始，会带着你使用设计模式的思想去优化代码。从而学习设计模式的心得并融入给自己。当然这里还需要多加练习，一定是*人车合一*，才能站在设计模式的基础上构建出更加合理的代码。
-
-**阅读建议**
-
-本书属于实战型而不是理论介绍类书籍，每一章节都有对应的完整代码，学习的过程需要参考书中的章节与代码一起学习，同时在学习的过程中需要了解并运行代码。学习完成后进行知识点的总结，以及思考🤔这样的设计模式在自己的业务场景中需要如何使用。
-
+> readme的目的是为了记录个设计模式可以用到地方，以后方便回忆和使用
 ## 创建型模式
 
 - [`1. 重学 Java 设计模式：实战工厂方法模式「多种类型商品不同接口，统一发奖服务搭建场景」`](https://bugstack.cn/itstack-demo-design/2020/05/20/%E9%87%8D%E5%AD%A6Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F.html)
+org.itstack.demo.design.test.ApiTest
+实际使用时，工厂返回的会是实例；
+工厂的作用是是承载了之前的业务代码的if-else，让业务代码更清晰
+
 - [`2. 重学 Java 设计模式：实战抽象工厂模式「替换Redis双集群升级，代理类抽象场景」`](https://bugstack.cn/itstack-demo-design/2020/05/24/%E9%87%8D%E5%AD%A6Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.html)
+用动态代理的方式获取想要的redis操作类；
+在现有业务中，一般用模版方式实现，模版方式需要有一个init的地方。
+动态代理里使用的反射技术，注意消耗
+
 - [`3. 重学 Java 设计模式：实战建造者模式「各项装修物料组合套餐选配场景」`](https://bugstack.cn/itstack-demo-design/2020/05/26/%E9%87%8D%E5%AD%A6Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F.html)
+当一个类的构造函数参数超过4个，而且这些参数有些是可选时，可以使用建造者模式
+一般开发过程中 通过lombok的@builder就可以使用建造者方式
+新增一个Computer的建造者案例
+步骤：
+1.在目标类中创建一个静态内部类 Builder，然后将 目标 中的参数都复制到Builder类中。
+2.在目标中创建一个private的构造函数，参数为Builder类型
+3.在Builder中创建一个public的构造函数，参数为目标中必填的那些参数，cpu 和ram。
+4.在Builder中创建设置函数，对目标中那些可选参数进行赋值，返回值为Builder类型的实例
+5.在Builder中创建一个build()方法，在其中构建目标的实例并返回
+
 - [`4. 重学 Java 设计模式：实战原型模式「上机考试多套试，每人题目和答案乱序排列场景」`](https://bugstack.cn/itstack-demo-design/2020/05/28/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.html)
+这个案例很失败，完全感觉不到任何可在业务中使用的场景
+原型模式的解释：
+原型模式将克隆过程委派给被克隆的实际对象。模式为所有支持克隆的对象声明了一个通用接口，
+该接口让你能够克隆对象， 同时又无需将代码和对象所属类耦合。 通常情况下， 这样的接口中仅包含一个 克隆方法。
+说白了，原型模式就是使用clone来进行那些可clone的类的设置
+
 - [`5. 重学 Java 设计模式：实战单例模式「7种单例模式案例，Effective Java 作者推荐枚举单例模式」`](https://bugstack.cn/itstack-demo-design/2020/05/31/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.html)
+这个案例的单例模式讲的不好，少了一个双重检查，且第7种模式不对，枚举需要在需要单例的类例。
+单例模式的使用场景：
+1.如果程序中的某个类对于所有客户端只有一个可用的实例， 可以使用单例模式
+2.如果你需要更加严格地控制全局变量， 可以使用单例模式
+
+说白了，其实单例模式和static没有本质区别，加了个没有就创建的功能
 
 ## 结构型模式
 
 - [`1. 重学 Java 设计模式：实战适配器模式「从多个MQ消息体中，抽取指定字段值场景」)`](https://bugstack.cn/itstack-demo-design/2020/06/02/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F.html)
+使用场景：
+1.当你希望使用某个类， 但是其接口与其他代码不兼容时， 可以使用适配器类。
+适配器模式允许你创建一个中间层类， 其可作为代码与遗留类、 第三方类或提供怪异接口的类之间的转换器。
+
+说白了，就是做一个中间类，解决上下两种接口或者类不兼容的问题
+
 - [`2. 重学 Java 设计模式：实战桥接模式「多支付渠道(微信、支付宝)与多支付模式(刷脸、指纹)场景」`](https://bugstack.cn/itstack-demo-design/2020/06/04/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.html)
+详细的可以看https://refactoringguru.cn/design-patterns/bridge
+或者https://zhuanlan.zhihu.com/p/58903776
+桥接模式可将一个大类或
+一系列紧密相关的类拆分为抽象和实现两个独立的层次结构， 从而能在开发时分别使用。
+
+就是将一个多继承的类变成一个多组合的类，
+比如有一个Shape形状类，可以扩展成圆形和三角形，然后将红蓝色彩加进来，就是4个类，红圆，红三，蓝圆，蓝三。
+如果这个时候要增加一个矩形，又要增加两个类，因为需要有两种色彩,
+这个时候可以将形状和颜色单独抽成两个独立类，那么就只会有4个类，分别是红、蓝、圆、三。
+这个时候新增一个矩形，也只需要在形状里增加一个子类，不需要动颜色的分类。
+
+在这个案例中，支付有两种方式，3中检测模式，加起来就有六种可能，如果继承同一个pay接口就会有6个实现类。
+将校验抽成独立类，通过构造器的方式将校验的类传入pay的实现类，
+即使以后增加其他的货币，也只需要增加一个类就好。
+
 - [`3. 重学 Java 设计模式：实战组合模式「营销差异化人群发券，决策树引擎搭建场景」`](https://bugstack.cn/itstack-demo-design/2020/06/08/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F.html)
+场景：如果你需要实现树状对象结构， 可以使用组合模式。https://zhuanlan.zhihu.com/p/369731677
+这个案例是组合模式的一个应用场景
+组合模式分成:
+1. 组件，叶子节点和普通节点都是组件的实现
+2. 组合, 有一个字段，表示组件的list
+3. 叶子节点
+在这个案例中，treeRich就是组合，TreeNode是组件节点也是叶子节点，
+场景里还有TreeNodeLink存储这个规则树里的规则
+
 - [`4. 重学 Java 设计模式：实战装饰器模式「SSO单点登录功能扩展，增加拦截用户访问方法范围场景」`](https://bugstack.cn/itstack-demo-design/2020/06/09/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F.html)
+https://blog.csdn.net/ShuSheng0007/article/details/88780036
+使用场景：
+1. 如果用继承来扩展对象行为的方案难以实现或者根本不可行， 你可以使用该模式。
+2. 在无需修改代码的情况下即可使用对象， 且希望在运行时为对象新增额外的行为， 可以使用装饰模式。(很多类是final, 禁止修改)
+比如：要装饰一个SsoInterceptor，并且按照顺序先装饰单点登陆，再装饰用户状态校验
+先有一个校验的接口 HandlerInterceptor，里面有一个preHandler
+初始的抽象类 AbstractDecorator, 被装饰类是 SsoInterceptor
+AbstractDecorator里持有SsoInterceptor的引用
+在LoginAbstractDecorator 和 UserStatusDecorator中分别实现 SsoInterceptor的preHandler，且增加了单点功能和用户状态校验功能
+
 - [`5. 重学 Java 设计模式：实战外观模式「基于SpringBoot开发门面模式中间件，统一控制接口白名单场景」`](https://bugstack.cn/itstack-demo-design/2020/06/11/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F.html)
+
+
 - [`6. 重学 Java 设计模式：实战享元模式「基于Redis秒杀，提供活动与库存信息查询场景」`](https://bugstack.cn/itstack-demo-design/2020/06/14/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F.html)
 - [`7. 重学 Java 设计模式：实战代理模式「模拟mybatis-spring中定义DAO接口，使用代理类方式操作数据库原理实现场景」`](https://bugstack.cn/itstack-demo-design/2020/06/16/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F.html)
 

@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class LoginSsoDecorator extends SsoDecorator {
+public class LoginAbstractDecorator extends AbstractDecorator {
 
-    private Logger logger = LoggerFactory.getLogger(LoginSsoDecorator.class);
+    private Logger logger = LoggerFactory.getLogger(LoginAbstractDecorator.class);
 
     private static Map<String, String> authMap = new ConcurrentHashMap<String, String>();
 
@@ -17,7 +17,7 @@ public class LoginSsoDecorator extends SsoDecorator {
         authMap.put("doudou", "queryUserInfo");
     }
 
-    public LoginSsoDecorator(HandlerInterceptor handlerInterceptor) {
+    public LoginAbstractDecorator(HandlerInterceptor handlerInterceptor) {
         super(handlerInterceptor);
     }
 

@@ -1,6 +1,7 @@
 package org.itstack.demo.design.test;
 
 import org.itstack.demo.design.Builder;
+import org.itstack.demo.design.newway.Computer;
 import org.junit.Test;
 
 public class ApiTest {
@@ -17,6 +18,15 @@ public class ApiTest {
 
         // 现代简约
         System.out.println(builder.levelThree(85.43D).getDetail());
+    }
+
+    @Test
+    public void test_Computer_Builder(){
+        Computer computer=new Computer.Builder("因特尔","三星")
+            .setDisplay("三星24寸")
+            .setKeyboard("罗技")
+            .setUsbCount(2)
+            .build();
     }
 
 }

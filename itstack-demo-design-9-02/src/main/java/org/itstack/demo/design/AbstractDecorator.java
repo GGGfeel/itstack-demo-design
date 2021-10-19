@@ -1,12 +1,13 @@
 package org.itstack.demo.design;
 
-public abstract class SsoDecorator implements HandlerInterceptor {
+public abstract class AbstractDecorator implements HandlerInterceptor {
 
     private HandlerInterceptor handlerInterceptor;
 
-    private SsoDecorator(){}
+    public AbstractDecorator(){}
 
-    public SsoDecorator(HandlerInterceptor handlerInterceptor) {
+
+    public AbstractDecorator(HandlerInterceptor handlerInterceptor) {
         this.handlerInterceptor = handlerInterceptor;
     }
 
