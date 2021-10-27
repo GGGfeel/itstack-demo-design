@@ -33,7 +33,7 @@ org.itstack.demo.design.test.ApiTest
 原型模式的解释：
 原型模式将克隆过程委派给被克隆的实际对象。模式为所有支持克隆的对象声明了一个通用接口，
 该接口让你能够克隆对象， 同时又无需将代码和对象所属类耦合。 通常情况下， 这样的接口中仅包含一个 克隆方法。
-说白了，原型模式就是使用clone来进行那些可clone的类的设置
+说白了，原型模式就是使用clone来进行那些可clone的类的设置，被克隆的类就作为原型
 
 - [`5. 重学 Java 设计模式：实战单例模式「7种单例模式案例，Effective Java 作者推荐枚举单例模式」`](https://bugstack.cn/itstack-demo-design/2020/05/31/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.html)
 这个案例的单例模式讲的不好，少了一个双重检查，且第7种模式不对，枚举需要在需要单例的类例。
@@ -90,22 +90,72 @@ AbstractDecorator里持有SsoInterceptor的引用
 在LoginAbstractDecorator 和 UserStatusDecorator中分别实现 SsoInterceptor的preHandler，且增加了单点功能和用户状态校验功能
 
 - [`5. 重学 Java 设计模式：实战外观模式「基于SpringBoot开发门面模式中间件，统一控制接口白名单场景」`](https://bugstack.cn/itstack-demo-design/2020/06/11/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F.html)
-
+没明白这个案例的使用场景，https://refactoringguru.cn/design-patterns/facade
+使用场景：
+如果你需要一个指向复杂子系统的直接接口， 且该接口的功能有限， 则可以使用外观模式。
+如果需要将子系统组织为多层结构， 可以使用外观。
+说白了就是将复杂的子系统给封装一层简单的交互类，与外部交互。将复杂的留给自己，将简单的留给别人
 
 - [`6. 重学 Java 设计模式：实战享元模式「基于Redis秒杀，提供活动与库存信息查询场景」`](https://bugstack.cn/itstack-demo-design/2020/06/14/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F.html)
+这个例子没看懂 享元模式用在哪里。
+享元模式的含义就是,共享元数据类模式,减少内存的消耗
+比如一个五子棋游戏中，棋子只有位置和颜色的不同。
+如果每一个棋子都是一个新的对象，那么对于内存的消耗十分的大
+这个时候可以将棋子的颜色作为内部固定参数，棋子的位置作为外部参数传入，通过工厂模式(cheerFactory)生成棋子(初始有颜色的棋子，只生成1次)。
+那么统一颜色的棋子会共享一个内存，再将位置参数通过接口(draw)传入，就可以达到省内存的结果。
+ 
 - [`7. 重学 Java 设计模式：实战代理模式「模拟mybatis-spring中定义DAO接口，使用代理类方式操作数据库原理实现场景」`](https://bugstack.cn/itstack-demo-design/2020/06/16/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F.html)
-
+切面就是动态代理做的，在需要在无法修改代码的类上新增一些额外行为时可以使用
+不一定要用到java的动态代理，静态代理也可以，实现被代理类实现的接口，
+持有被代理类的引用，在调用被代理类的方法前，增加自己的特殊逻辑
 ## 行为模式
 
 - [`1. 重学 Java 设计模式：实战责任链模式「模拟618电商大促期间，项目上线流程多级负责人审批场景」`](https://bugstack.cn/itstack-demo-design/2020/06/18/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F.html)
+责任链模式，很熟了
+主要有以下几点：
+1. 一个接口，所有的责任节点都实现这个接口
+2. 一个上下文，这个案例中没有上下文，所有的参数都平铺在函数中
+3. 链组装的地方，确认所有责任节点的顺序
+4. 一个抽象类，确定责任节点接下来的执行，这个案例中没有
+
 - [`2. 重学 Java 设计模式：实战命令模式「模拟高档餐厅八大菜系，小二点单厨师烹饪场景」`](https://bugstack.cn/itstack-demo-design/2020/06/21/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F.html)
+这个命令模式的案例的不好，https://blog.csdn.net/ShuSheng0007/article/details/116115743
+命令模式主要有以下几点:
+1. command接口和实现类, 里面包含receiver的引用，execute方法(主要是receiver的方法调用)
+2. receiver类，cmd的接收方
+3. invoker，调用方，包含cmd列表的引用，有增加命令，删除命令，执行命令3个方法
+
+使用时，先生成reciver，在生成command类，将生成的cmd加入invoke，然后执行invoke的调用方法
+在真是的业务场景，可能会舍弃receiver和invoker
+将执行代码放在cmd类的execute里，由调用方执行生成cmd类以后执行
 - [`3. 重学 Java 设计模式：实战迭代器模式「模拟公司组织架构树结构关系，深度迭代遍历人员信息输出场景」`](https://bugstack.cn/itstack-demo-design/2020/06/23/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F.html)
+让你能在不暴露集合底层表现形式 （列表、 栈和树等） 的情况下遍历集合中所有的元素。
+java天然就支持迭代器模式 就是迭代器的实现，实现java.lang.Iterable接口，然后通过iterator进行遍历的执行
 - [`4. 重学 Java 设计模式：实战中介者模式「按照Mybaits原理手写ORM框架，给JDBC方式操作数据库增加中介者场景」`](https://bugstack.cn/itstack-demo-design/2020/06/27/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F.html)
+没看懂这个案例
+按照网上的案例，中介者模式分成：
+1. 中介接口和具体的实现，实现类持有需要中介的双方的引用
+2. 需要中介的双方，持有中介实现类的引用, 业务的逻辑其实是调用中介的一个方法，中介方法内部区分来源并且调用双方的业务逻辑方法
 - [`5. 重学 Java 设计模式：实战备忘录模式「模拟互联网系统上线过程中，配置文件回滚场景」`](https://bugstack.cn/itstack-demo-design/2020/06/28/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F.html)
+感觉跟一个栈差不多
+分成3个文件：
+1. 备忘文件 pojo 没有逻辑
+2. originator，针对备忘文件的封装
+3. invoker 发起者，文件的保存和恢复逻辑
+
 - [`6. 重学 Java 设计模式：实战观察者模式「模拟类似小客车指标摇号过程，监听消息通知用户中签场景」`](https://bugstack.cn/itstack-demo-design/2020/06/30/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F.html)
+重点是订阅，在订阅的消息发出来的时候监听并进行处理
+有个实现工具：eventBus,事件总线,一个消息的多个订阅者之间是乱序的
 - [`7. 重学 Java 设计模式：实战状态模式「模拟系统营销活动，状态流程审核发布上线场景」`](https://bugstack.cn/itstack-demo-design/2020/07/02/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F.html)
+1.有一个status接口State,State有很多动作方法
+2.很多的status实现类，不同的实现类在不同动作方法里 代码不一样，比如开状态下的open方法没有代码，但是开状态下的close方法有逻辑
+3.上下文，上下文持有状态的实现类。
+调用方 调用上下文的实现类里的动作方法
 - [`8. 重学 Java 设计模式：实战策略模式「模拟多种营销类型优惠券，折扣金额计算策略场景」`](https://bugstack.cn/itstack-demo-design/2020/07/05/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.html)
+有一个接口，接口的实现类很多，上下文持有实现类的引用，上下文调用方法，在方法内部调用实现类的实现方法
 - [`9. 重学 Java 设计模式：实战模版模式「模拟爬虫各类电商商品，生成营销推广海报场景」`](https://bugstack.cn/itstack-demo-design/2020/07/07/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F.html)
+这个案例举的不好，模版模式一般是结合一个map使用，map里是String-Class。map的初始化是在spring的初始化时候。
+获取的时候一般是根据key来获取，key一般是一个实现类的code
 - [`10. 重学 Java 设计模式：实战访问者模式「模拟家长与校长，对学生和老师的不同视角信息的访问场景」`](https://bugstack.cn/itstack-demo-design/2020/07/09/%E9%87%8D%E5%AD%A6-Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%AE%9E%E6%88%98%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F.html)
 
 ---
